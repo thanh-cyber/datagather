@@ -1,0 +1,46 @@
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# Output files
+*.csv
+*.xlsx
+*.xls
+~$*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archive and output directories
+Archive/
+Archive Output/
+Data for Dashboard/
+Outputs/
+Real Output/
+Test/
+Open/
+New PM Data/
+Output to compare/
+package/
+
