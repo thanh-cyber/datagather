@@ -35,9 +35,6 @@ logging.basicConfig(
     ]
 )
 
-# Suppress urllib3 connection pool warnings (informational only)
-logging.getLogger("urllib3.connectionpool").setLevel(logging.ERROR)
-
 # Load environment variables
 load_dotenv()
 
@@ -493,7 +490,6 @@ def main():
         python opengapscanner.py                          # Today's date
         python opengapscanner.py 2025-01-01               # Single date
         python opengapscanner.py 2025-01-01 to 2025-12-10 # Date range
-        python opengapscanner.py 2025-01-01 - 2025-12-10  # Date range (alternative)
     """
     start_time = time.time()
     
@@ -507,9 +503,8 @@ def main():
         # Single date
         dates_to_process = [sys.argv[1]]
         logging.info(f"Starting open gap scanner for {sys.argv[1]}")
-    elif len(sys.argv) == 4 and (sys.argv[2].lower() == "to" or sys.argv[2] == "-"):
+    elif len(sys.argv) == 4 and sys.argv[2].lower() == "to":
         # Date range: python opengapscanner.py 2025-01-01 to 2025-12-10
-        # Also supports: python opengapscanner.py 2025-01-01 - 2025-12-10
         start_date_str = sys.argv[1]
         end_date_str = sys.argv[3]
         
@@ -538,7 +533,6 @@ def main():
         print("  python opengapscanner.py                          # Today's date")
         print("  python opengapscanner.py 2025-01-01               # Single date")
         print("  python opengapscanner.py 2025-01-01 to 2025-12-10 # Date range")
-        print("  python opengapscanner.py 2025-01-01 - 2025-12-10  # Date range (alternative)")
         return
     
     if not dates_to_process:
