@@ -68,8 +68,8 @@ class RateLimiter:
                     time.sleep(sleep_time)
             self.calls.append(time.time())
 
-# Rate limit configuration (fixed to 300 calls/second)
-polygon_limiter = RateLimiter(max_calls=300, period=1.0)
+# Rate limit configuration (fixed to 400 calls/second)
+polygon_limiter = RateLimiter(max_calls=400, period=1.0)
 
 # Connection pool configuration
 POLYGON_NUM_POOLS = 500
@@ -259,7 +259,7 @@ def main():
             HEADER_DATES = []
 
         # Process with parallel workers and write rows in input order as they become available
-        max_workers = 150
+        max_workers = 300
         logging.info(f"Processing {len(ticker_data)} tickers with {max_workers} workers...")
 
         # Determine filename based on timestamp
