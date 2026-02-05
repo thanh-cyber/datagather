@@ -259,7 +259,7 @@ def main():
             HEADER_DATES = []
 
         # Process with parallel workers and write rows in input order as they become available
-        max_workers = 50
+        max_workers = 150
         logging.info(f"Processing {len(ticker_data)} tickers with {max_workers} workers...")
 
         # Determine filename based on timestamp
